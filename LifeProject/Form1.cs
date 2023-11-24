@@ -92,6 +92,11 @@ namespace LifeProject
                 //MessageBox.Show("Close");
             }
         }
+
+        private void файлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class DataLife
