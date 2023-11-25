@@ -28,7 +28,7 @@ namespace LifeProject
 
         private void стартToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form2 fff = new Form2(d.getT());
+            Form2 fff = new Form2(d.getT(), d.getN(), d.getM());
             fff.ShowDialog();
         }
 
@@ -41,7 +41,7 @@ namespace LifeProject
         {
             MessageBox.Show("This is a program Life");
         }
-
+        
         private void открытьToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
@@ -50,7 +50,7 @@ namespace LifeProject
             {
                 String str1 = dlg.FileName;
                 Console.WriteLine("str1 =" + str1);
-                
+            
                 Form2 fff = new Form2(str1);
                
                 fff.ShowDialog();
@@ -67,7 +67,7 @@ namespace LifeProject
                     Console.WriteLine("Error open file");
                 }
                 */
-
+                
             }
         }
 
@@ -82,7 +82,9 @@ namespace LifeProject
                 Console.WriteLine("OK Input");
                 
                 d.setT(System.Int32.Parse(fff.getTextBox1()));
-
+                d.setN(System.Int32.Parse(fff.getTextBox2()));
+                d.setM(System.Int32.Parse(fff.getTextBox3()));
+                
                 
                 //MessageBox.Show("OK");
             

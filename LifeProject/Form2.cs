@@ -14,29 +14,28 @@ namespace LifeProject
     // This delegate enables asynchronous calls for setting
     // the text property on a TextBox control.
     delegate void SetTextCallback(string text);
-
+    
     public partial class Form2 : Form
     {
         private Thread oThread;
         private bool isGo;
-        private int x = 0;
-        private int y = 0;
-        //private Image image1;
+        private int x;
+        private int y;
+        private Image image1;
         //private Image image2;
 
-        private const int N = 21;
-        private const int M = 21;
+        public int N;
+        public int M;
         private const int SIZE = 16;
         
         private bool [,]array1;
         private bool [,]array_init;
         private int timeDelay;
 
-        public Form2(int T)
+        public Form2(int T, int N, int M)
         {
-            //N = 21;
-            //M = 21;
-
+            this.N = N;
+            this.M = M;
             array1 = new bool[N, M];
             
             array_init = new bool[N, M];
@@ -58,7 +57,7 @@ namespace LifeProject
             }
 
             // Create image.
-            //image1 = Image.FromFile("C:\\Images\\image1.bmp");
+            image1 = Image.FromFile("C:\\Users\\Yehor Medentsov\\source\\repos\\LifeProject\\LifeProject\\coral.png");
             //image2 = Image.FromFile("C:\\Images\\image2.bmp");
 
             InitCommonData(T);
@@ -66,10 +65,10 @@ namespace LifeProject
 
         public Form2(String str1)
         {
-
+            
             FileStream fs;
             //N = 16;
-            //M = 16;
+            //M = 16
 
             array1 = new bool[N, M];
 
@@ -136,7 +135,7 @@ namespace LifeProject
             }
              */
         }
-
+        
         private void setText(string text)
         {
             //label1.Text = str1;
@@ -180,17 +179,17 @@ namespace LifeProject
                 this.Invalidate();
             }
         }
-
+        
         protected override void OnPaint(PaintEventArgs e)
         {
             //Point p1[4] = new Point[4];
             Graphics g = e.Graphics;
             //Pen green = new Pen(Color.Green, 3);
             //Pen blue = new Pen(Color.Blue, 3);
-            Brush white = new SolidBrush(Color.White);
+            Brush white = new SolidBrush(Color.LightBlue);
             Brush blue = new SolidBrush(Color.Green);
-
-            //g.DrawEllipse(green, x, y, 30, 40);
+          
+            //g.DrawEllipse(green, x, y, 30, 40;
             //g.DrawLine(blue, new Point(0, 0), new Point(x, y));
 
             //g.FillRectangle(red, 50, 50, 21, 21);
@@ -204,8 +203,9 @@ namespace LifeProject
                     
                     if (array1[i,j])
                     {
-                        //g.DrawImage(image1, p);
-                        g.FillRectangle(blue, SIZE * i + i, SIZE * j + j, SIZE, SIZE);
+                        g.FillRectangle(white, SIZE * i + i, SIZE * j + j, SIZE, SIZE);
+                        g.DrawImage(image1, p);
+
                     }
                     else
                     {
@@ -385,7 +385,7 @@ namespace LifeProject
 
             this.Invalidate();
         }
-
+        
         private void button4_Click(object sender, EventArgs e)
         {
             SaveFileDialog sv = new SaveFileDialog();
