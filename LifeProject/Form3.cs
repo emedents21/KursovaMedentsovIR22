@@ -49,6 +49,8 @@ namespace LifeProject
         private void Form3_Load(object sender, EventArgs e)
         {
             textBox1.Text = "" + ddd.getT();
+            textBox2.Text = "" + ddd.getN();
+            textBox3.Text = "" + ddd.getM();
         }
 
         private void button1_Click(object sender, EventArgs e)

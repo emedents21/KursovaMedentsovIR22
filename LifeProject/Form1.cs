@@ -31,7 +31,7 @@ namespace LifeProject
             Form2 fff = new Form2(d.getT(), d.getN(), d.getM());
             fff.ShowDialog();
         }
-
+        
  
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -39,7 +39,7 @@ namespace LifeProject
 
         private void помощьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This is a program Life");
+            MessageBox.Show("This is a “Coral World: Virtual Aquarium” created by Yehor Medentsov 2023!");
         }
         
         private void открытьToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -96,6 +96,16 @@ namespace LifeProject
         }
 
         private void файлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

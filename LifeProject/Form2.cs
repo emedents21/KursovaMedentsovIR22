@@ -31,7 +31,7 @@ namespace LifeProject
         private bool [,]array1;
         private bool [,]array_init;
         private int timeDelay;
-
+        
         public Form2(int T, int N, int M)
         {
             this.N = N;
