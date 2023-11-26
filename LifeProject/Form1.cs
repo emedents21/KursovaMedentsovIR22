@@ -50,9 +50,9 @@ namespace LifeProject
             {
                 String str1 = dlg.FileName;
                 Console.WriteLine("str1 =" + str1);
-            
+                
                 Form2 fff = new Form2(str1);
-               
+
                 fff.ShowDialog();
                 //str1 = str1 + " - " + Path.GetFileName(str1);
                 //Console.WriteLine("str1 =" + str1);
@@ -67,7 +67,7 @@ namespace LifeProject
                     Console.WriteLine("Error open file");
                 }
                 */
-                
+
             }
         }
 

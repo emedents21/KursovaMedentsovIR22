@@ -37,7 +37,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(105, 374);
+            this.button1.Location = new System.Drawing.Point(102, 372);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(72, 23);
             this.button1.TabIndex = 0;
@@ -65,21 +65,21 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(183, 374);
+            this.button3.Location = new System.Drawing.Point(184, 373);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(77, 22);
             this.button3.TabIndex = 3;
-            this.button3.Text = "Заполнение";
+            this.button3.Text = "Заповнення";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(269, 373);
+            this.button4.Location = new System.Drawing.Point(271, 372);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(72, 23);
             this.button4.TabIndex = 4;
-            this.button4.Text = "Сохранить";
+            this.button4.Text = "Зберегти";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -88,7 +88,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(360, 400);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -97,7 +96,7 @@
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form2";
-            this.Text = "Поле";
+            this.Text = "Акварiум";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

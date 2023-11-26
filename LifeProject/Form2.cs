@@ -22,10 +22,10 @@ namespace LifeProject
         private int x;
         private int y;
         private Image image1;
-        //private Image image2;
+        private Image image2;
 
-        public int N;
-        public int M;
+        public int N = 21;
+        public int M = 21;
         private const int SIZE = 16;
         
         private bool [,]array1;
@@ -58,11 +58,11 @@ namespace LifeProject
 
             // Create image.
             image1 = Image.FromFile("C:\\Users\\Yehor Medentsov\\source\\repos\\LifeProject\\LifeProject\\coral.png");
-            //image2 = Image.FromFile("C:\\Images\\image2.bmp");
+            image2 = Image.FromFile("C:\\Users\\Yehor Medentsov\\source\\repos\\LifeProject\\LifeProject\\waterr.png");
 
             InitCommonData(T);
         }
-
+            
         public Form2(String str1)
         {
             
@@ -77,7 +77,7 @@ namespace LifeProject
             //BinaryWriter br;
 
             //Console.WriteLine("sizeof=" + sizeof(bool [,]));
-
+            
             try
             {
                 fs = new FileStream(str1, FileMode.Open, FileAccess.Read, FileShare.Read);
@@ -118,7 +118,7 @@ namespace LifeProject
         
         private void Form2_Load(object sender, EventArgs e)
         {
-            this.Text = "Поле " + N + " на " + M;            
+            this.Text = "Акварiум " + N + " на " + M;            
         }
 
         private void Form2_FormClosing(object sender, EventArgs e)
@@ -182,19 +182,24 @@ namespace LifeProject
         
         protected override void OnPaint(PaintEventArgs e)
         {
+
             //Point p1[4] = new Point[4];
             Graphics g = e.Graphics;
             //Pen green = new Pen(Color.Green, 3);
             //Pen blue = new Pen(Color.Blue, 3);
             Brush white = new SolidBrush(Color.LightBlue);
+            Brush white1 = new SolidBrush(Color.LightBlue);
+            
             Brush blue = new SolidBrush(Color.Green);
-          
+
             //g.DrawEllipse(green, x, y, 30, 40;
             //g.DrawLine(blue, new Point(0, 0), new Point(x, y));
 
             //g.FillRectangle(red, 50, 50, 21, 21);
-            
-            
+            image1 = Image.FromFile("C:\\Users\\Yehor Medentsov\\source\\repos\\LifeProject\\LifeProject\\coral.png");
+            image2 = Image.FromFile("C:\\Users\\Yehor Medentsov\\source\\repos\\LifeProject\\LifeProject\\waterr.png");
+
+
             for (int i = 0; i < N; i++)
             {
                 for (int j = 0; j < M; j++)
@@ -204,19 +209,22 @@ namespace LifeProject
                     if (array1[i,j])
                     {
                         g.FillRectangle(white, SIZE * i + i, SIZE * j + j, SIZE, SIZE);
+                        //g.DrawImage(image2, p);
                         g.DrawImage(image1, p);
 
                     }
                     else
                     {
-                        //g.DrawImage(image2, p);
                         g.FillRectangle(white, SIZE * i + i, SIZE * j + j, SIZE, SIZE);
+                        //g.DrawImage(image2, p);
+
                     }
                 }
             }
-            
-            //g.DrawPolygon(blue, new Point[] )
+
+            //g.DrawPolygon(blue, new Point[]);
             base.OnPaint(e);
+
         }
 
         private void stepLife()
@@ -397,7 +405,7 @@ namespace LifeProject
                 FileStream fs;
 
                 //BinaryWriter br;
-
+         
                 //Console.WriteLine("sizeof=" + sizeof(bool [,]));
 
                 try
@@ -425,6 +433,6 @@ namespace LifeProject
 
                 fs.Close();
             }
-        }
+            }
     }
 }
