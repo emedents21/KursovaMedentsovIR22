@@ -45,7 +45,7 @@ namespace KorallGame
         private void открытьToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Life files (*.lf)|*.lf";
+            dlg.Filter = "Korall Files (*.kf)|*.kf";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 String str1 = dlg.FileName;

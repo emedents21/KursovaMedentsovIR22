@@ -14,7 +14,7 @@ namespace KorallGame
         {
             SaveFileDialog sv = new SaveFileDialog();
 
-            sv.Filter = "Life files (*.lf)|*.lf";
+            sv.Filter = "Korall Files (*.kf)|*.kf";
 
             if (sv.ShowDialog() == DialogResult.OK)
             {
