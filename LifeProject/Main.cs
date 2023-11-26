@@ -23,7 +23,7 @@ namespace KorallGame
                 {
                     int count1 = 0;
                     bool b1 = array1[i, j];
-                    bool[] temp2 = new bool[8];//8 соседей у каждой клеточки для проверки
+                    bool[] temp2 = new bool[8];//8 соседей у каждой клеточки для проверкиb
 
                     if ((i == 0) || (j == 0))
                     {
