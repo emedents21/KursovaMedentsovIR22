@@ -21,88 +21,88 @@ namespace KorallGame
             {
                 for (int j = 0; j < M; j++)
                 {
-                    int count1 = 0;
-                    bool b1 = array1[i, j];
-                    bool[] temp2 = new bool[8];//8 соседей у каждой клеточки для проверкиb
+                    int count1 = 0;//колво живых соседей
+                    bool b1 = array1[i, j];//состояние текущей клеточки
+                    bool[] temp2 = new bool[8];//8 соседей у каждой клеточки для проверки
 
-                    if ((i == 0) || (j == 0))
+                    if ((i == 0) || (j == 0))//левый вехний угол(или граница) коралл не имеет соседа
                     {
                         temp2[0] = false;
                     }
-                    else
+                    else//если есть сосед то левый верхний берется
                     {
                         temp2[0] = array1[i - 1, j - 1];
                     }
 
-                    if (i == 0)
+                    if (i == 0)//на границе коралл тоже не имеет соседа сверху
                     {
                         temp2[1] = false;
                     }
-                    else
+                    else//верхнеграничный сосед берется
                     {
                         temp2[1] = array1[i - 1, j];
                     }
 
-                    if ((i == 0) || (j == M - 1))
+                    if ((i == 0) || (j == M - 1))//правый верхний угол
                     {
                         temp2[2] = false;
                     }
-                    else
+                    else//правый верхний сосед
                     {
                         temp2[2] = array1[i - 1, j + 1];
                     }
 
-                    if (j == M - 1)
+                    if (j == M - 1)//правая граница не имеет соседа справа
                     {
                         temp2[3] = false;
                     }
-                    else
+                    else//значение из клетки справа
                     {
                         temp2[3] = array1[i, j + 1];
                     }
 
-                    if ((i == N - 1) || (j == M - 1))
+                    if ((i == N - 1) || (j == M - 1))//правый нижний угол
                     {
                         temp2[4] = false;
                     }
-                    else
+                    else//правый нижний
                     {
                         temp2[4] = array1[i + 1, j + 1];
                     }
 
-                    if (i == N - 1)
+                    if (i == N - 1)//нижняя грани це нету соседа
                     {
                         temp2[5] = false;
                     }
-                    else
+                    else//значение соседа снизу
                     {
                         temp2[5] = array1[i + 1, j];
                     }
 
-                    if ((i == N - 1) || (j == 0))
+                    if ((i == N - 1) || (j == 0))//левый низ или нижняя граница не имеет соседа
                     {
                         temp2[6] = false;
                     }
-                    else
+                    else//слева внизу сосед
                     {
                         temp2[6] = array1[i + 1, j - 1];
                     }
 
-                    if ((i == 0) || (j == 0))
+                    if ((i == 0) || (j == 0))//левая граница и нет левого соседа
                     {
                         temp2[7] = false;
                     }
-                    else
+                    else//левый сосед
                     {
                         temp2[7] = array1[i, j - 1];
                     }
 
-                    for (int iii = 0; iii < 8; iii++)
+                    for (int iii = 0; iii < 8; iii++)//подсчет живых клеточек-соседей у данной
                     {
                         if (temp2[iii])
                             count1++;
                     }
-                    if (b1)
+                    if (b1)//если текущая клеточка жива то она остается живой при 2-3 соседях
                     {
                         temp1[i, j] = false;
                         if ((count1 == 2) || (count1 == 3)) //если два или три соседа то коралл жив
@@ -121,10 +121,10 @@ namespace KorallGame
 
                 }
             }
-            array1 = temp1;
+            array1 = temp1;//сохранение обновленного состояния поля
         }
 
-        public void Zapolnenije(ref bool[,] array1, int N, int M) //заполняем пле кораллами 
+        public void Zapolnenije(ref bool[,] array1, int N, int M) //заполняем поля кораллами 
         {
             Random r = new Random();
             for (int i = 0; i < N; i++)
