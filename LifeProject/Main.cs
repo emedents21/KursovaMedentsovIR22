@@ -122,7 +122,7 @@ namespace KorallGame
                 }
             }
             array1 = temp1;//сохранение обновленного состояния поля
-        }
+        }//сложность алгоримта О(NxM);
 
         public void Zapolnenije(ref bool[,] array1, int N, int M) //заполняем поля кораллами 
         {

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace KorallGame
 {
@@ -13,17 +14,11 @@ namespace KorallGame
         public ReadInfo(String str1, ref bool[,] array1, int N, int M)
         {
             FileStream fs;
-            //N = 16;
-            //M = 16
-
             array1 = new bool[N, M];
 
             array_init = new bool[N, M];
 
             //BinaryWriter br;
-
-            //Console.WriteLine("sizeof=" + sizeof(bool [,]));
-
             try
             {
                 fs = new FileStream(str1, FileMode.Open, FileAccess.Read, FileShare.Read);
@@ -31,14 +26,14 @@ namespace KorallGame
                 {
                     for (int j = 0; j < M; j++)
                     {
-                        array1[i, j] = (fs.ReadByte() == 1) ? true : false;
+                        array1[i, j] = (fs.ReadByte() == 1) ? true : false;//читання байтов из файла и преобразование в буллевое значение
                     }
                 }
                 //br = new BinaryWriter(fs);
             }
             catch (System.IO.IOException)
             {
-                Console.Write("Erroe System IO");
+                MessageBox.Show("Error reading!");
                 return;
             }
 

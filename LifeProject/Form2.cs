@@ -19,14 +19,14 @@ namespace KorallGame
     {
         private Thread oThread;
         private bool isGo;
-        private int x;
+        private int x;//кординаты
         private int y;
         private Image image1;
         private Image image2;
 
         public int N = 21;
         public int M = 21;
-        private const int SIZE = 16;
+        private const int SIZE = 16;//размер клеточки
         
         private bool [,]array1;
         private bool [,]array_init;
@@ -89,7 +89,7 @@ namespace KorallGame
             }
         }
 
-        protected override void OnMouseUp(MouseEventArgs e)
+        protected override void OnMouseUp(MouseEventArgs e)//самостоятельное определеник состояния клетки кликом
         {
             int j = e.Y / SIZE;
             int i = e.X / SIZE;
@@ -97,7 +97,7 @@ namespace KorallGame
             j = (e.Y - j)/ SIZE;
             i = (e.X - i)/ SIZE;
 
-            if((i < N) && (j < M))
+            if((i < N) && (j < M))//инвертируем состояние клеточки при клике на нее из интерфейса
             {
                 array1[i, j] = !array1[i, j];
                 this.Invalidate(); //перемалювання
@@ -121,7 +121,7 @@ namespace KorallGame
                 {
                     Point p = new Point(SIZE * i + i, SIZE * j + j);
                     
-                    if (array1[i,j])
+                    if (array1[i,j])//проверка состояния клеточки 
                     {
                         g.FillRectangle(white, SIZE * i + i, SIZE * j + j, SIZE, SIZE);
                         //g.DrawImage(image2, p);
@@ -139,11 +139,10 @@ namespace KorallGame
             base.OnPaint(e);
         }
 
-        private void Loop()//виклик головного алгоритму
+        private void Loop()//виклик головного алгоритму на каждой итерации
         {
             while (isGo)
             {
-                //setText("" + DateTime.Now);
                 x++;
                 y++;
                 if (x == 10) 
@@ -161,7 +160,7 @@ namespace KorallGame
             isGo = true;
             array_init = array1;
             //setText("Поток запущен");
-            oThread = new Thread(new ThreadStart(Loop));
+            oThread = new Thread(new ThreadStart(Loop));//новий поток
             oThread.Start();
 
         }

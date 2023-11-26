@@ -16,8 +16,8 @@ namespace KorallGame
 
         public Form1()
         {
-            d = new DataLife(21, 21, 300);
-
+            d = new DataLife(21, 21, 300);//за замовченням
+            MaximizeBox = false;
             InitializeComponent();
         }
 
@@ -57,20 +57,44 @@ namespace KorallGame
 
         private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("1DataLife =" + d);
-
             Form3 fff = new Form3(ref d);
 
             if (fff.ShowDialog() == DialogResult.OK)
             {
-                Console.WriteLine("OK Input");
-                
-                d.setT(System.Int32.Parse(fff.getTextBox1()));
-                d.setN(System.Int32.Parse(fff.getTextBox2()));
-                d.setM(System.Int32.Parse(fff.getTextBox3()));
-            
+                int newT, newN, newM;
+
+                if (int.TryParse(fff.getTextBox1(), out newT))
+                {
+                    d.setT(newT);
+                }
+                else
+                {
+                    MessageBox.Show("Введiть значення коректно!");
+                    return;  
+                }
+
+                if (int.TryParse(fff.getTextBox2(), out newN))
+                {
+                    d.setN(newN);
+                }
+                else
+                {
+                    MessageBox.Show("Введiть значення коректно!");
+                    return;
+                }
+
+                if (int.TryParse(fff.getTextBox3(), out newM))
+                {
+                    d.setM(newM);
+                }
+                else
+                {
+                    MessageBox.Show("Введiть значення коректно!");
+                    return;
+                }
             }
         }
+
 
         private void файлToolStripMenuItem_Click(object sender, EventArgs e)
         {

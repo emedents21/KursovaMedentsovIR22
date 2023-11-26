@@ -21,9 +21,6 @@ namespace KorallGame
                 FileStream fs;
 
                 //BinaryWriter br;
-
-                //Console.WriteLine("sizeof=" + sizeof(bool [,]));
-
                 try
                 {
                     fs = new FileStream(sv.FileName, FileMode.CreateNew, FileAccess.Write, FileShare.Write);
@@ -32,7 +29,7 @@ namespace KorallGame
                     {
                         for (int j = 0; j < M; j++)
                         {
-                            fs.WriteByte((array_init[i, j]) ? (byte)1 : (byte)0);
+                            fs.WriteByte((array_init[i, j]) ? (byte)1 : (byte)0);//каждая ячейка массива записывается в виде байта в файл
                         }
                     }
 
