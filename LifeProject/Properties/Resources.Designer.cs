@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LifeProject.Properties {
+namespace KorallGame.Properties {
     using System;
     
     

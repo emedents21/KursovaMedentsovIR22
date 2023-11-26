@@ -9,7 +9,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Threading;
 
-namespace LifeProject
+namespace KorallGame
 {
     // This delegate enables asynchronous calls for setting
     // the text property on a TextBox control.
@@ -176,7 +176,7 @@ namespace LifeProject
         {
             maine.Zapolnenije(ref array1, N, M);
             array_init = array1;
-
+            
             this.Invalidate();
         }
         

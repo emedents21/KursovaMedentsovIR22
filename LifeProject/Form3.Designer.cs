@@ -1,4 +1,4 @@
-﻿namespace LifeProject
+﻿namespace KorallGame
 {
     partial class Form3
     {
