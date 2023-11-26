@@ -150,7 +150,7 @@ namespace KorallGame
                     x = 0;
                 if (y == 10) 
                     y = 0;
-                maine.stepLife(ref array1, N, M);
+                maine.stepCorall(ref array1, N, M);
                 this.Invalidate();
                 Thread.Sleep(timeDelay);
             }

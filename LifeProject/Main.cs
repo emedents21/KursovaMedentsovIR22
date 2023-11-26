@@ -14,16 +14,16 @@ namespace KorallGame
     {
         public Main() { }
     
-        public void stepLife(ref bool [,]array1, int N, int M)
+        public void stepCorall(ref bool [,]array1, int N, int M) //алгоритм который делает развитие жизни кораллов (один шаг) согласно условию
         {
-            bool[,] temp1 = new bool[N, M];
-            for (int i = 0; i < N; i++)
+            bool[,] temp1 = new bool[N, M];// новый массив для обновленной ситуации на поле развития
+            for (int i = 0; i < N; i++)//бежим по каждой ячейке
             {
                 for (int j = 0; j < M; j++)
                 {
                     int count1 = 0;
                     bool b1 = array1[i, j];
-                    bool[] temp2 = new bool[8];
+                    bool[] temp2 = new bool[8];//8 соседей у каждой клеточки для проверки
 
                     if ((i == 0) || (j == 0))
                     {
@@ -105,7 +105,7 @@ namespace KorallGame
                     if (b1)
                     {
                         temp1[i, j] = false;
-                        if ((count1 == 2) || (count1 == 3))
+                        if ((count1 == 2) || (count1 == 3)) //если два или три соседа то коралл жив
                         {
                             temp1[i, j] = true;
                         }
@@ -113,7 +113,7 @@ namespace KorallGame
                     else
                     {
                         temp1[i, j] = array1[i, j];
-                        if (count1 == 3)
+                        if (count1 == 3)//если мертвый коралл имеет три соседа то он возрождается
                         {
                             temp1[i, j] = true;
                         }
@@ -124,7 +124,7 @@ namespace KorallGame
             array1 = temp1;
         }
 
-        public void Zapolnenije(ref bool[,] array1, int N, int M)
+        public void Zapolnenije(ref bool[,] array1, int N, int M) //заполняем пле кораллами 
         {
             Random r = new Random();
             for (int i = 0; i < N; i++)
@@ -143,7 +143,7 @@ namespace KorallGame
             }
         }
 
-        public void Init(ref bool[,] array1, ref bool[,] array_init, int N, int M)
+        public void Init(ref bool[,] array1, ref bool[,] array_init, int N, int M) //создаем игровое поле
         {
             array1 = new bool[N, M];
             array_init = new bool[N, M];
