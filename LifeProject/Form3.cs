@@ -15,21 +15,10 @@ namespace LifeProject
         
         public Form3(ref DataLife d)
         {
-            
-            Console.WriteLine("2 DataLife =" + d);
-            Console.WriteLine("2 DataLife =" + d.getT());
-
-            
             ddd = new DataLife(d);
-
             MaximizeBox = false;
-
             FormBorderStyle = FormBorderStyle.FixedSingle;
-
             this.Load += new System.EventHandler(this.Form3_Load);
-
-
-
             InitializeComponent();
         }
 

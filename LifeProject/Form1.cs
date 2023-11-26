@@ -52,22 +52,6 @@ namespace LifeProject
                 Console.WriteLine("str1 =" + str1);
                 
                 Form2 fff = new Form2(str1);
-
-                fff.ShowDialog();
-                //str1 = str1 + " - " + Path.GetFileName(str1);
-                //Console.WriteLine("str1 =" + str1);
-                /*
-                try
-                {
-                    FileStream fs = new FileStream(str1, FileMode.Open, FileAccess.Read, FileShare.Read);
-                    fs.Close();
-                }
-                catch
-                {
-                    Console.WriteLine("Error open file");
-                }
-                */
-
             }
         }
 
@@ -84,14 +68,7 @@ namespace LifeProject
                 d.setT(System.Int32.Parse(fff.getTextBox1()));
                 d.setN(System.Int32.Parse(fff.getTextBox2()));
                 d.setM(System.Int32.Parse(fff.getTextBox3()));
-                
-                
-                //MessageBox.Show("OK");
             
-            }
-            else
-            {
-                //MessageBox.Show("Close");
             }
         }
 
@@ -109,57 +86,5 @@ namespace LifeProject
         {
 
         }
-    }
-
-    public class DataLife
-    {
-        private int N;
-        private int M;
-        private int T;
-
-        public DataLife(int n, int m, int t)
-        {
-            N = n;
-            M = m;
-            T = t;
-        }
-
-        public DataLife(DataLife ddd)
-        {
-            N = ddd.N;
-            M = ddd.M;
-            T = ddd.T;
-        }
-
-        public int getN()
-        {
-            return N;
-        }
-
-        public int getM()
-        {
-            return M;
-        }
-
-        public int getT()
-        {
-            return T;
-        }
-
-        public void setT(int t)
-        {
-            T = t;
-        }
-
-        public void setM(int m)
-        {
-            M = m;
-        }
-
-        public void setN(int n)
-        {
-            N = n;
-        }
-
     }
 }
