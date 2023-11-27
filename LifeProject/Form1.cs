@@ -63,7 +63,7 @@ namespace KorallGame
             {
                 int newT, newN, newM;
 
-                if (int.TryParse(fff.getTextBox1(), out newT))
+                if (int.TryParse(fff.getTextBox1(), out newT)) 
                 {
                     d.setT(newT);
                 }
@@ -75,7 +75,16 @@ namespace KorallGame
 
                 if (int.TryParse(fff.getTextBox2(), out newN))
                 {
-                    d.setN(newN);
+                    if (newN > 21)
+                    {
+                        MessageBox.Show("Значення поля не бiльше 21!");
+                        return;
+                    }
+                    else
+                    {
+                        d.setN(newN);
+
+                    }
                 }
                 else
                 {
@@ -85,7 +94,15 @@ namespace KorallGame
 
                 if (int.TryParse(fff.getTextBox3(), out newM))
                 {
-                    d.setM(newM);
+                    if (newM > 21)
+                    {
+                        MessageBox.Show("Значення поля не бiльше 21!");
+                        return;
+                    }
+                    else
+                    {
+                        d.setM(newM);
+                    }
                 }
                 else
                 {
