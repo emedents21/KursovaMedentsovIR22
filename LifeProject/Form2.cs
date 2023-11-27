@@ -8,28 +8,28 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using System.Threading;
+using LifeProject;
+using System.Runtime.Remoting.Messaging;
 
 namespace KorallGame
 {
     // This delegate enables asynchronous calls for setting
     // the text property on a TextBox control.
     delegate void SetTextCallback(string text);
-    
+
     public partial class Form2 : Form
     {
         private Thread oThread;
         private bool isGo;
         private int x;//кординаты
         private int y;
-        private Image image1;
-        private Image image2;
 
         public int N = 21;
         public int M = 21;
         private const int SIZE = 16;//размер клеточки
-        
-        private bool [,]array1;
-        private bool [,]array_init;
+
+        private bool[,] array1;
+        private bool[,] array_init;
         private int timeDelay;
         Main maine = new Main();
 
@@ -39,15 +39,12 @@ namespace KorallGame
             this.N = N;
             this.M = M;
             maine.Init(ref array1, ref array_init, N, M);
-            image1 = Image.FromFile("C:\\Users\\Yehor Medentsov\\source\\repos\\LifeProject\\LifeProject\\coral.png");
-            image2 = Image.FromFile("C:\\Users\\Yehor Medentsov\\source\\repos\\LifeProject\\LifeProject\\waterr.png");
-
             InitCommonData(T);
         }
 
         public Form2(String str1)
         {
-            ReadInfo r = new ReadInfo(str1,ref array1, N, M);
+            ReadInfo r = new ReadInfo(str1, ref array1, N, M);
             InitCommonData(400);
             ShowDialog();
         }
@@ -63,18 +60,18 @@ namespace KorallGame
             InitializeComponent();
         }
 
-        
+
         private void Form2_Load(object sender, EventArgs e)
         {
-            this.Text = "Акварiум " + N + " на " + M;            
+            this.Text = "Акварiум " + N + " на " + M;
         }
 
         private void Form2_FormClosing(object sender, EventArgs e)
         {
-            Console.Write("FormClosed()"); 
+            Console.Write("FormClosed()");
             isGo = false;
         }
-        
+
         private void setText(string text)
         {
             //label1.Text = str1;
@@ -93,49 +90,21 @@ namespace KorallGame
         {
             int j = e.Y / SIZE;
             int i = e.X / SIZE;
-            
-            j = (e.Y - j)/ SIZE;
-            i = (e.X - i)/ SIZE;
 
-            if((i < N) && (j < M))//инвертируем состояние клеточки при клике на нее из интерфейса
+            j = (e.Y - j) / SIZE;
+            i = (e.X - i) / SIZE;
+
+            if ((i < N) && (j < M))//инвертируем состояние клеточки при клике на нее из интерфейса
             {
                 array1[i, j] = !array1[i, j];
                 this.Invalidate(); //перемалювання
             }
         }
-        
+
         protected override void OnPaint(PaintEventArgs e)//малювання на форме кординат та корал
         {
-            Graphics g = e.Graphics;
-            Brush white = new SolidBrush(Color.LightBlue);
-            Brush white1 = new SolidBrush(Color.LightBlue);
-            Brush blue = new SolidBrush(Color.Green);
-
-            image1 = Image.FromFile("C:\\Users\\Yehor Medentsov\\source\\repos\\LifeProject\\LifeProject\\coral.png");
-            image2 = Image.FromFile("C:\\Users\\Yehor Medentsov\\source\\repos\\LifeProject\\LifeProject\\waterr.png");
-
-
-            for (int i = 0; i < N; i++)
-            {
-                for (int j = 0; j < M; j++)
-                {
-                    Point p = new Point(SIZE * i + i, SIZE * j + j);
-                    
-                    if (array1[i,j])//проверка состояния клеточки 
-                    {
-                        g.FillRectangle(white, SIZE * i + i, SIZE * j + j, SIZE, SIZE);
-                        //g.DrawImage(image2, p);
-                        g.DrawImage(image1, p);
-
-                    }
-                    else
-                    {
-                        g.FillRectangle(white, SIZE * i + i, SIZE * j + j, SIZE, SIZE);
-                        //g.DrawImage(image2, p);
-
-                    }
-                }
-            }
+            PainterYehor pc = new PainterYehor(N, M, SIZE);
+            pc.Paint(e, ref array1);
             base.OnPaint(e);
         }
 
@@ -145,9 +114,9 @@ namespace KorallGame
             {
                 x++;
                 y++;
-                if (x == 10) 
+                if (x == 10)
                     x = 0;
-                if (y == 10) 
+                if (y == 10)
                     y = 0;
                 maine.stepCorall(ref array1, N, M);
                 this.Invalidate();
@@ -175,13 +144,13 @@ namespace KorallGame
         {
             maine.Zapolnenije(ref array1, N, M);
             array_init = array1;
-            
+
             this.Invalidate();
         }
-        
+
         private void button4_Click(object sender, EventArgs e)
         {
             WriteInfo WF = new WriteInfo(ref array_init, N, M);
         }
-    }   
+    }
 }

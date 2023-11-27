@@ -142,7 +142,7 @@ namespace KorallGame
                 }
             }
         }
-
+        
         public void Init(ref bool[,] array1, ref bool[,] array_init, int N, int M) //создаем игровое поле
         {
             array1 = new bool[N, M];

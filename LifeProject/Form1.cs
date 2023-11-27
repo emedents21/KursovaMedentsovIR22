@@ -49,7 +49,7 @@ namespace KorallGame
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 String str1 = dlg.FileName;
-                Console.WriteLine("str1 =" + str1);
+                //Console.WriteLine("str1 =" + str1);
                 
                 Form2 fff = new Form2(str1);
             }
